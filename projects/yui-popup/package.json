@@ -1,0 +1,27 @@
+{
+    "name": "@yulize/popup",
+    "version": "0.0.1",
+    "description": "A simple popup component for Angular v9+",
+    "author": {
+        "name": "Yulize"
+    },
+    "keywords": [
+        "angular",
+        "angular2",
+        "angular9",
+        "angular 9",
+        "popup",
+        "yui-popup",
+        "yulize"
+    ],
+    "license": "MIT",
+    "repository": {
+        "url": "https://github.com/yulize/yui-popup"
+    },
+    "peerDependencies": {
+        "@angular/common": "^9.1.7",
+        "@angular/core": "^9.1.7",
+        "@angular/cdk": "^9.2.4",
+        "tslib": "^1.10.0"
+    }
+}
