@@ -1,9 +1,9 @@
 {
-    "name": "@yulize/popup",
+    "name": "@discordelia/popup",
     "version": "0.0.1",
     "description": "A simple popup component for Angular v9+",
     "author": {
-        "name": "Yulize"
+        "name": "Discordelia"
     },
     "keywords": [
         "angular",
@@ -12,11 +12,11 @@
         "angular 9",
         "popup",
         "yui-popup",
-        "yulize"
+        "discordelia"
     ],
     "license": "MIT",
     "repository": {
-        "url": "https://github.com/yulize/yui-popup"
+        "url": "https://github.com/discordelia/yui-popup"
     },
     "peerDependencies": {
         "@angular/common": "^9.1.7",
