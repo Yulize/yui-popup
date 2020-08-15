@@ -1,6 +1,7 @@
 <div class="wrapper">
-    <yui-popup [target]="buttonElement" [template]="popupTemplate" [trigger]="'click'"
-               (create)="onPopupCreated($event)"></yui-popup>
+    <yui-popup [target]="buttonElement" [template]="popupTemplate" [trigger]="'mouseover'"
+               (create)="onPopupCreated($event)" [precise]="false"
+        [direction]="'rtl'"></yui-popup>
     <button #buttonElement>Menu</button>
 </div>
 

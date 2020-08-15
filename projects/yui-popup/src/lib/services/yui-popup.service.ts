@@ -58,7 +58,8 @@ export class YuiPopupService {
         const overlayConfig = new OverlayConfig({
             positionStrategy,
             hasBackdrop: popupContext.hasBackdrop ?? true,
-            backdropClass: popupContext.backdropClass ?? "transparent"
+            backdropClass: popupContext.backdropClass ?? "transparent",
+            direction: popupContext.direction ?? "ltr"
         });
         const popupOverlayRef = this.overlay.create(overlayConfig);
         popupOverlayRef.attach(

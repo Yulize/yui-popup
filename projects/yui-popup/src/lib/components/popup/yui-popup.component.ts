@@ -12,6 +12,7 @@ import {
 import {IPopupRef} from "../../interfaces/IPopupRef";
 import {ICoordinate} from "../../interfaces/ICoordinate";
 import {YuiPopupService} from "../../services/yui-popup.service";
+import {Direction} from "@angular/cdk/bidi";
 
 @Component({
     selector: "yui-popup",
@@ -23,6 +24,7 @@ export class YuiPopupComponent implements AfterViewInit, OnDestroy {
     private popupRef: IPopupRef = null;
     private rendererListenerRef: () => void;
 
+    @Input() direction: Direction = "ltr";
     @Input() precise: boolean = true;
     @Input() target: Element | ElementRef | ICoordinate;
     @Input() template: TemplateRef<any>;
@@ -45,7 +47,8 @@ export class YuiPopupComponent implements AfterViewInit, OnDestroy {
                 this.popupRef = this.popupService.createPopup({
                     coordinates,
                     target: this.target,
-                    template: this.template ?? this.contentTemplate
+                    template: this.template ?? this.contentTemplate,
+                    direction: this.direction ?? "ltr"
                 });
                 this.create.emit(this.popupRef);
             });
@@ -53,7 +56,8 @@ export class YuiPopupComponent implements AfterViewInit, OnDestroy {
             this.popupRef = this.popupService.createPopup({
                 coordinates: null,
                 target: this.target,
-                template: this.template ?? this.contentTemplate
+                template: this.template ?? this.contentTemplate,
+                direction: this.direction ?? "ltr"
             });
             this.create.emit(this.popupRef);
         }
