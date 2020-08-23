@@ -18,10 +18,8 @@
     "repository": {
         "url": "https://github.com/discordelia/yui-popup"
     },
-    "peerDependencies": {
-        "@angular/common": "^9.1.7",
-        "@angular/core": "^9.1.7",
-        "@angular/cdk": "^9.2.4",
-        "tslib": "^1.10.0"
+    "peerDependencies": {},
+    "dependencies": {
+        "tslib": "^2.0.0"
     }
 }
