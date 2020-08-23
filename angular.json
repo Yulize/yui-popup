@@ -67,6 +67,11 @@
                         "main": "projects/yui-popup-tester/src/main.ts",
                         "polyfills": "projects/yui-popup-tester/src/polyfills.ts",
                         "tsConfig": "projects/yui-popup-tester/tsconfig.app.json",
+                        "sourceMap": {
+                            "styles": true,
+                            "scripts": true,
+                            "vendor": true
+                        },
                         "aot": true,
                         "assets": [
                             "projects/yui-popup-tester/src/favicon.ico",

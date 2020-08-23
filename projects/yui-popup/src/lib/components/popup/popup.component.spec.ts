@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from "@angular/core/testing";
 
-import {YuiPopupComponent} from "./yui-popup.component";
+import {PopupComponent} from "./popup.component";
 
-describe("YuiPopupComponent", () => {
-    let component: YuiPopupComponent;
-    let fixture: ComponentFixture<YuiPopupComponent>;
+describe("PopupComponent", () => {
+    let component: PopupComponent;
+    let fixture: ComponentFixture<PopupComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [YuiPopupComponent]
+            declarations: [PopupComponent]
         })
             .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(YuiPopupComponent);
+        fixture = TestBed.createComponent(PopupComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

@@ -2,7 +2,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 
 import {AppComponent} from "./app.component";
-import {YuiPopupModule} from "yui-popup";
+import {PopupModule} from "yui-popup";
 
 @NgModule({
     declarations: [
@@ -10,7 +10,7 @@ import {YuiPopupModule} from "yui-popup";
     ],
     imports: [
         BrowserModule,
-        YuiPopupModule
+        PopupModule
     ],
     providers: [],
     bootstrap: [AppComponent]
