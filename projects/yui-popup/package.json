@@ -1,9 +1,9 @@
 {
     "name": "@discordelia/popup",
-    "version": "0.1.0",
-    "description": "A simple popup component for Angular v9+",
+    "version": "1.0.0",
+    "description": "",
     "author": {
-        "name": "Discordelia"
+        "name": "discordelia"
     },
     "keywords": [
         "angular",

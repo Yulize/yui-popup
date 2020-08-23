@@ -11,15 +11,15 @@ import {
 } from "@angular/core";
 import {IPopupRef} from "../../interfaces/IPopupRef";
 import {ICoordinate} from "../../interfaces/ICoordinate";
-import {YuiPopupService} from "../../services/yui-popup.service";
+import {PopupService} from "../../services/popup.service";
 import {Direction} from "@angular/cdk/bidi";
 
 @Component({
     selector: "yui-popup",
-    templateUrl: "./yui-popup.component.html",
-    styleUrls: ["./yui-popup.component.scss"]
+    templateUrl: "./popup.component.html",
+    styleUrls: ["./popup.component.scss"]
 })
-export class YuiPopupComponent implements AfterViewInit, OnDestroy {
+export class PopupComponent implements AfterViewInit, OnDestroy {
 
     private popupRef: IPopupRef = null;
     private rendererListenerRef: () => void;
@@ -33,7 +33,7 @@ export class YuiPopupComponent implements AfterViewInit, OnDestroy {
     @ContentChild(TemplateRef) contentTemplate: TemplateRef<any>;
 
     public constructor(
-        private popupService: YuiPopupService,
+        private popupService: PopupService,
         private renderer: Renderer2
     ) {
     }

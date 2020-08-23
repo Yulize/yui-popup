@@ -5,12 +5,12 @@ import {IPopupRef} from "../interfaces/IPopupRef";
 import {ComponentPortal, PortalInjector} from "@angular/cdk/portal";
 import {Subject} from "rxjs";
 import {IPopupInjectorData, POPUP_DATA} from "../interfaces/IPopupInjectorData";
-import {YuiPopupContentComponent} from "../components/popup-content/yui-popup-content.component";
+import {PopupContentComponent} from "../components/popup-content/popup-content.component";
 
 @Injectable({
     providedIn: "root"
 })
-export class YuiPopupService {
+export class PopupService {
     private readonly defaultPositions: ConnectedPosition[] = [
         {
             originX: "start", originY: "bottom",
@@ -64,9 +64,9 @@ export class YuiPopupService {
         const popupOverlayRef = this.overlay.create(overlayConfig);
         popupOverlayRef.attach(
             new ComponentPortal(
-                YuiPopupContentComponent,
+                PopupContentComponent,
                 null,
-                this.createInjector(YuiPopupService.createInjectorData(popupContext.template), popupOverlayRef)
+                this.createInjector(PopupService.createInjectorData(popupContext.template), popupOverlayRef)
             )
         );
         const outsideClick$: Subject<void> = new Subject<void>();

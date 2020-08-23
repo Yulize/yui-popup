@@ -3,10 +3,10 @@ import {IPopupInjectorData, POPUP_DATA} from "../../interfaces/IPopupInjectorDat
 
 @Component({
     selector: "yui-popup-content",
-    templateUrl: "./yui-popup-content.component.html",
-    styleUrls: ["./yui-popup-content.component.scss"]
+    templateUrl: "./popup-content.component.html",
+    styleUrls: ["./popup-content.component.scss"]
 })
-export class YuiPopupContentComponent {
+export class PopupContentComponent {
 
     @HostBinding("class.yui-popup") get hostClass() {
         return true;
