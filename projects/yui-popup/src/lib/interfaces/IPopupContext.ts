@@ -10,6 +10,6 @@ export interface IPopupContext {
     direction?: Direction;
     hasBackdrop?: boolean;
     positions?: ConnectedPosition[];
-    target: IPopupTarget;
+    target: IPopupTarget | string;
     template: TemplateRef<any>; // Popup content template
 }

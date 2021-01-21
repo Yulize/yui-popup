@@ -13,6 +13,8 @@ import {IPopupRef} from "../../interfaces/IPopupRef";
 import {ICoordinate} from "../../interfaces/ICoordinate";
 import {PopupService} from "../../services/popup.service";
 import {Direction} from "@angular/cdk/bidi";
+import {IPopupTarget} from "../../interfaces/IPopupTarget";
+import {element} from "protractor";
 
 @Component({
     selector: "yui-popup",
@@ -22,11 +24,11 @@ import {Direction} from "@angular/cdk/bidi";
 export class PopupComponent implements AfterViewInit, OnDestroy {
 
     private popupRef: IPopupRef = null;
-    private rendererListenerRef: () => void;
+    private rendererListenerRefList: Array<() => void> = [];
 
     @Input() direction: Direction = "ltr";
     @Input() precise: boolean = true;
-    @Input() target: Element | ElementRef | ICoordinate;
+    @Input() target: Element | ElementRef | ICoordinate | string;
     @Input() template: TemplateRef<any>;
     @Input() trigger: string = "click";
     @Output() create: EventEmitter<IPopupRef> = new EventEmitter<IPopupRef>();
@@ -39,19 +41,18 @@ export class PopupComponent implements AfterViewInit, OnDestroy {
     }
 
     ngAfterViewInit(): void {
+        const targetElements: Element[] = [];
+        if (typeof this.target === "string") {
+            document.querySelectorAll(this.target as string).forEach(e => targetElements.push(e));
+        }
         if (this.trigger) {
-            this.rendererListenerRef = this.renderer.listen(this.target, this.trigger, (event: MouseEvent) => {
-                event.stopPropagation();
-                event.preventDefault();
-                const coordinates = event instanceof MouseEvent && this.precise ? {x: event.x, y: event.y} as ICoordinate : null;
-                this.popupRef = this.popupService.createPopup({
-                    coordinates,
-                    target: this.target,
-                    template: this.template ?? this.contentTemplate,
-                    direction: this.direction ?? "ltr"
-                });
-                this.create.emit(this.popupRef);
-            });
+            if (targetElements.length > 0) {
+                for (const e of targetElements) {
+                    this.eventHandler(e);
+                }
+            } else {
+                this.eventHandler(this.target);
+            }
         } else {
             this.popupRef = this.popupService.createPopup({
                 coordinates: null,
@@ -64,7 +65,22 @@ export class PopupComponent implements AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this.rendererListenerRef?.();
+        this.rendererListenerRefList.forEach(ref => ref?.());
     }
 
+    private eventHandler(targetElement: IPopupTarget | string): void {
+        const listenerRef = this.renderer.listen(targetElement, this.trigger, (event: MouseEvent) => {
+            event.stopPropagation();
+            event.preventDefault();
+            const coordinates = event instanceof MouseEvent && this.precise ? {x: event.x, y: event.y} as ICoordinate : null;
+            this.popupRef = this.popupService.createPopup({
+                coordinates,
+                target: targetElement,
+                template: this.template ?? this.contentTemplate,
+                direction: this.direction ?? "ltr"
+            });
+            this.create.emit(this.popupRef);
+        });
+        this.rendererListenerRefList.push(listenerRef);
+    }
 }

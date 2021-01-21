@@ -6,6 +6,7 @@ import {ComponentPortal, PortalInjector} from "@angular/cdk/portal";
 import {Subject} from "rxjs";
 import {IPopupInjectorData, POPUP_DATA} from "../interfaces/IPopupInjectorData";
 import {PopupContentComponent} from "../components/popup-content/popup-content.component";
+import {IPopupTarget} from "../interfaces/IPopupTarget";
 
 @Injectable({
     providedIn: "root"
@@ -49,10 +50,11 @@ export class PopupService {
     }
 
     public createPopup(popupContext: IPopupContext): IPopupRef {
+
         const anchorPoint = popupContext.coordinates ?? popupContext.target;
         const positions = popupContext.positions?.length > 0 ? popupContext.positions : this.defaultPositions;
         const positionStrategy = this.overlay.position()
-            .flexibleConnectedTo(anchorPoint)
+            .flexibleConnectedTo(anchorPoint as IPopupTarget)
             .withPositions(positions)
             .withPush(true);
         const overlayConfig = new OverlayConfig({

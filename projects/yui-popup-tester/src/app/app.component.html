@@ -1,8 +1,21 @@
 <div class="wrapper">
-    <yui-popup [target]="buttonElement" [template]="popupTemplate" [trigger]="'mouseover'"
+    <yui-popup [target]="'#listId'" [template]="popupTemplate" [trigger]="'click'"
                (create)="onPopupCreated($event)" [precise]="false"
-        [direction]="'rtl'"></yui-popup>
+        [direction]="'ltr'"></yui-popup>
+    <yui-popup [target]="'.context'" [template]="popupTemplate2" [trigger]="'click'"
+               (create)="onPopupCreated($event)" [precise]="false"
+               [direction]="'ltr'"></yui-popup>
+    <yui-popup [target]="buttonElement" [template]="popupTemplate3" [trigger]="'click'"
+               (create)="onPopupCreated($event)" [precise]="false"
+               [direction]="'ltr'"></yui-popup>
     <button #buttonElement>Menu</button>
+
+    <ul style="margin-left: 60px;">
+        <li class="context">C1</li>
+        <li class="context">C2</li>
+        <li>C3</li>
+        <li id="listId">C4</li>
+    </ul>
 </div>
 
 <ng-template #popupTemplate>
@@ -16,5 +29,21 @@
             nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
             anim id est laborum.
         </p>
+    </div>
+</ng-template>
+
+<ng-template #popupTemplate2>
+    <div>
+        <button>POPUP BUTTON</button>
+    </div>
+</ng-template>
+
+<ng-template #popupTemplate3>
+    <div>
+        <select>
+            <option [text]="'Option 1'"></option>
+            <option [text]="'Option 2'"></option>
+            <option [text]="'Option 3'"></option>
+        </select>
     </div>
 </ng-template>
