@@ -1,9 +1,9 @@
 {
-    "name": "@discordelia/popup",
-    "version": "1.1.0",
+    "name": "@luminela/popup",
+    "version": "1.1.1",
     "description": "",
     "author": {
-        "name": "discordelia"
+        "name": "luminela"
     },
     "keywords": [
         "angular",
@@ -12,11 +12,11 @@
         "angular 9",
         "popup",
         "yui-popup",
-        "discordelia"
+        "luminela"
     ],
     "license": "MIT",
     "repository": {
-        "url": "https://github.com/discordelia/yui-popup"
+        "url": "https://github.com/luminela/yui-popup"
     },
     "peerDependencies": {},
     "dependencies": {

@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "description": "Popup component test application",
     "author": {
-        "name": "Discordelia"
+        "name": "luminela"
     },
     "keywords": [
         "angular",
@@ -15,7 +15,7 @@
     ],
     "license": "MIT",
     "repository": {
-        "url": "https://github.com/discordelia/yui-popup"
+        "url": "https://github.com/luminela/yui-popup"
     },
     "scripts": {
         "ng": "ng",
